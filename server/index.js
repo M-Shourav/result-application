@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import ConnectDB from "./config/ConnectDB.js";
 import userRouter from "./routes/UserRoutes.js";
-
 const app = express();
 dotenv.config();
 
