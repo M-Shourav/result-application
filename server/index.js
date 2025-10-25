@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import ConnectDB from "./config/ConnectDB.js";
 import userRouter from "./routes/UserRoutes.js";
+import resultRoutes from "./routes/resultRoutes.js";
 const app = express();
 dotenv.config();
 
@@ -12,6 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(process.env.USER_ROUTES, userRouter);
+
+app.use(process.env.RESULT_ROUTES, resultRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello Server");

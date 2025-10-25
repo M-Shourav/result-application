@@ -7,12 +7,10 @@ const resultSchema = new mongoose.Schema(
     class: { type: String, required: true },
     section: { type: String },
     year: { type: String, required: true },
-    subjects: {
-      type: Map,
-      of: Number, // key = subject name, value = marks
-    },
+    subjects: { type: Object, required: true },
   },
   { timestamps: true }
 );
+const resultModels = mongoose.model("Result", resultSchema);
 
-export const Result = mongoose.model("Result", resultSchema);
+export default resultModels;

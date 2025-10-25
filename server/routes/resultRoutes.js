@@ -1,14 +1,10 @@
-import express from "express";
-import multer from "multer";
-import { uploadResults, getResultByRoll } from "../controller/resultController";
+import { Router } from "express";
+import upload from "../middlewares/multer.js";
+import { resultSearch, resultUpload } from "../controller/resultController.js";
 
-const router = express.Router();
-const upload = multer({ dest: "uploads/" });
+const resultRoutes = Router();
 
-// Upload CSV
-router.post("/upload", upload.single("file"), uploadResults);
+resultRoutes.post("/upload-result", upload.single("file"), resultUpload);
+resultRoutes.get("/search", resultSearch);
 
-// Find student result
-router.post("/find", getResultByRoll);
-
-export default router;
+export default resultRoutes;
