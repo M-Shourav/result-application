@@ -1,6 +1,6 @@
 import csv from "csvtojson";
 import fs from "fs";
-import ResultModel from "../models/resultModel.js";
+import resultModels from "../models/resultModel.js";
 import asyncHandler from "express-async-handler";
 
 const resultUpload = asyncHandler(async (req, res) => {
@@ -15,10 +15,10 @@ const resultUpload = asyncHandler(async (req, res) => {
     const filePath = req.file.path;
     const jsonArray = await csv().fromFile(filePath);
 
-    // ✅ Identify all columns that are NOT basic fields
+    //  Identify all core fields
     const coreFields = ["roll", "name", "class", "section", "year"];
 
-    // ✅ Convert each CSV row into model format dynamically
+    //  Convert each CSV row into model format dynamically
     const formattedData = jsonArray.map((row) => {
       const subjects = {};
 
@@ -36,14 +36,14 @@ const resultUpload = asyncHandler(async (req, res) => {
         class: row.class,
         section: row.section,
         year: row.year,
-        subjects, // dynamically created subject object
+        subjects,
       };
     });
 
-    // ✅ Save to MongoDB
-    await ResultModel.insertMany(formattedData);
+    // Save to MongoDB
+    await resultModels.insertMany(formattedData);
 
-    // ✅ Remove uploaded CSV
+    // Remove uploaded CSV
     fs.unlinkSync(filePath);
 
     res.status(200).json({
@@ -59,79 +59,77 @@ const resultUpload = asyncHandler(async (req, res) => {
     });
   }
 });
+/* const resultSearch = asyncHandler(async (req, res) => {
+  try {
+    const { roll, class: studentClass, year, section } = req.query;
 
-// const resultSearch = asyncHandler(async (req, res) => {
-//   try {
-//     const { roll, class: studentClass, year, section } = req.query;
+    // Validation
+    if (!roll || !studentClass || !year) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide roll, class, and year to search result.",
+      });
+    }
 
-//     // Validation
-//     if (!roll || !studentClass || !year) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "Please provide roll, class, and year to search result.",
-//       });
-//     }
+    // Find result
+    const result = await ResultModel.findOne({
+      roll: Number(roll),
+      class: studentClass,
+      year,
+      ...(section && { section }), // section optional
+    });
 
-//     // Find result
-//     const result = await ResultModel.findOne({
-//       roll: Number(roll),
-//       class: studentClass,
-//       year,
-//       ...(section && { section }), // section optional
-//     });
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: "Result not found!",
+      });
+    }
 
-//     if (!result) {
-//       return res.status(404).json({
-//         success: false,
-//         message: "Result not found!",
-//       });
-//     }
+    res.status(200).json({
+      success: true,
+      message: "Result found successfully!",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Result search error:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "Server error while searching result.",
+    });
+  }
+}); */
 
-//     res.status(200).json({
-//       success: true,
-//       message: "Result found successfully!",
-//       data: result,
-//     });
-//   } catch (error) {
-//     console.error("Result search error:", error);
-//     res.status(500).json({
-//       success: false,
-//       message: error.message || "Server error while searching result.",
-//     });
-//   }
-// });
+/* const resultSearch = asyncHandler(async (req, res) => {
+  try {
+    const { roll, class: studentClass, year } = req.body;
 
-// Post method
-// const resultSearch = asyncHandler(async (req, res) => {
-//   try {
-//     const { roll, class: studentClass, year } = req.body;
+    const result = await ResultModel.findOne({
+      roll: Number(roll),
+      class: studentClass,
+      year,
+    });
 
-//     const result = await ResultModel.findOne({
-//       roll: Number(roll),
-//       class: studentClass,
-//       year,
-//     });
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: "Result not found!",
+      });
+    }
 
-//     if (!result) {
-//       return res.status(404).json({
-//         success: false,
-//         message: "Result not found!",
-//       });
-//     }
+    res.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+}); */
 
-//     res.json({
-//       success: true,
-//       data: result,
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       success: false,
-//       message: error.message,
-//     });
-//   }
-// });
-
-const resultSearch = asyncHandler(async (req, res) => {
+/* const resultSearch = asyncHandler(async (req, res) => {
   try {
     const { roll, class: studentClass, section, year } = req.query;
 
@@ -171,6 +169,104 @@ const resultSearch = asyncHandler(async (req, res) => {
       message: error.message || "Server error while searching result.",
     });
   }
+}); */
+
+// const resultSearch = asyncHandler(async (res, res) => {
+//   try {
+//     const { roll, class: studentClass, section } = req.query;
+//     if (!roll) {
+//       return res.json({
+//         success: false,
+//         message: "roll number is required!",
+//       });
+//     }
+//     if (!studentClass) {
+//       return res.json({
+//         success: false,
+//         message: "class name is required!",
+//       });
+//     }
+//     if (!section) {
+//       return res.json({
+//         success: false,
+//         message: "section is required!",
+//       });
+//     }
+
+//     const result = await resultModels.findOne({
+//       roll: Number(roll),
+//       class: studentClass,
+//       section,
+//     });
+
+//     if (!result) {
+//       return res.json({
+//         success: false,
+//         message: "result not found! please check your details",
+//       });
+//     }
+
+//     return res.json({
+//       success: true,
+//       message: "Result found successfully",
+//       data: result,
+//     });
+//   } catch (error) {
+//     console.log("Result Not found");
+//     return res.json({
+//       success: false,
+//       message: error?.message || "Internal server error",
+//     });
+//   }
+// });
+
+const searchResult = asyncHandler(async (req, res) => {
+  try {
+    const { roll, class: studentClass, section } = req.query;
+    if (!roll) {
+      return res.json({
+        success: false,
+        message: "roll number is required!",
+      });
+    }
+    if (!studentClass) {
+      return res.json({
+        success: false,
+        message: "class name is required!",
+      });
+    }
+    if (!section) {
+      return res.json({
+        success: false,
+        message: "section is required!",
+      });
+    }
+
+    const result = await resultModels.findOne({
+      roll: Number(roll),
+      class: studentClass,
+      section,
+    });
+
+    if (!result) {
+      return res.json({
+        success: false,
+        message: "result not found! please check your details",
+      });
+    }
+
+    return res.json({
+      success: true,
+      message: "Result found successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log("Result Not found");
+    return res.json({
+      success: false,
+      message: error?.message || "Internal server error",
+    });
+  }
 });
 
-export { resultUpload, resultSearch };
+export { resultUpload, searchResult };
