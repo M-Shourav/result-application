@@ -1,9 +1,10 @@
-import csv from "csvtojson";
+import xlsx from "xlsx";
 import fs from "fs";
 import resultModels from "../models/resultModel.js";
 import asyncHandler from "express-async-handler";
 
-const resultUpload = asyncHandler(async (req, res) => {
+/*
+ const resultUpload = asyncHandler(async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -59,166 +60,69 @@ const resultUpload = asyncHandler(async (req, res) => {
     });
   }
 });
-/* const resultSearch = asyncHandler(async (req, res) => {
-  try {
-    const { roll, class: studentClass, year, section } = req.query;
+*/
 
-    // Validation
-    if (!roll || !studentClass || !year) {
+const resultUpload = async (req, res) => {
+  try {
+    // 🟢 File check
+    if (!req.file) {
       return res.status(400).json({
         success: false,
-        message: "Please provide roll, class, and year to search result.",
+        message: "No file uploaded",
       });
     }
 
-    // Find result
-    const result = await ResultModel.findOne({
-      roll: Number(roll),
-      class: studentClass,
-      year,
-      ...(section && { section }), // section optional
+    // 🟢 Read Excel/CSV file
+    const workbook = xlsx.readFile(req.file.path);
+    const sheetName = workbook.SheetNames[0];
+    const sheetData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
+
+    // 🟢 Convert Excel rows → MongoDB documents
+    const results = sheetData.map((row) => {
+      // Subject fields handle dynamically (based on column names)
+      const subjects = [];
+      for (let i = 1; i <= 10; i++) {
+        const name = row[`subject${i}_name`];
+        const code = row[`subject${i}_code`];
+        const mark = row[`subject${i}_mark`];
+        if (name && code && mark) {
+          subjects.push({ name, code, mark });
+        }
+      }
+
+      return {
+        name: row.name,
+        roll: row.roll,
+        class: row.class,
+        section: row.section,
+        year: row.year,
+        subjects,
+        result: row.result,
+        grade: row.grade,
+        gpa: row.gpa,
+      };
     });
 
-    if (!result) {
-      return res.status(404).json({
-        success: false,
-        message: "Result not found!",
-      });
-    }
+    // 🟢 Insert into database
+    await resultModels.insertMany(results);
 
-    res.status(200).json({
+    // // remove upload CSV
+    fs.unlinkSync(req.file.path);
+
+    res.status(201).json({
       success: true,
-      message: "Result found successfully!",
-      data: result,
+      message: "Results uploaded successfully!",
+      count: results.length,
     });
   } catch (error) {
-    console.error("Result search error:", error);
+    console.error("Error uploading results:", error);
     res.status(500).json({
       success: false,
-      message: error.message || "Server error while searching result.",
+      message: "Internal Server Error",
+      error: error.message,
     });
   }
-}); */
-
-/* const resultSearch = asyncHandler(async (req, res) => {
-  try {
-    const { roll, class: studentClass, year } = req.body;
-
-    const result = await ResultModel.findOne({
-      roll: Number(roll),
-      class: studentClass,
-      year,
-    });
-
-    if (!result) {
-      return res.status(404).json({
-        success: false,
-        message: "Result not found!",
-      });
-    }
-
-    res.json({
-      success: true,
-      data: result,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-}); */
-
-/* const resultSearch = asyncHandler(async (req, res) => {
-  try {
-    const { roll, class: studentClass, section, year } = req.query;
-
-    if (!roll || !studentClass || !year) {
-      return res.status(400).json({
-        success: false,
-        message: "Please provide roll, class, and year to search result.",
-      });
-    }
-
-    const query = {
-      roll: Number(roll),
-      class: studentClass,
-      year,
-    };
-
-    if (section) query.section = section; // optional section
-
-    const result = await ResultModel.findOne(query);
-
-    if (!result) {
-      return res.status(404).json({
-        success: false,
-        message: "Result not found!",
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      message: "Result found successfully!",
-      data: result,
-    });
-  } catch (error) {
-    console.error("Result search error:", error);
-    res.status(500).json({
-      success: false,
-      message: error.message || "Server error while searching result.",
-    });
-  }
-}); */
-
-// const resultSearch = asyncHandler(async (res, res) => {
-//   try {
-//     const { roll, class: studentClass, section } = req.query;
-//     if (!roll) {
-//       return res.json({
-//         success: false,
-//         message: "roll number is required!",
-//       });
-//     }
-//     if (!studentClass) {
-//       return res.json({
-//         success: false,
-//         message: "class name is required!",
-//       });
-//     }
-//     if (!section) {
-//       return res.json({
-//         success: false,
-//         message: "section is required!",
-//       });
-//     }
-
-//     const result = await resultModels.findOne({
-//       roll: Number(roll),
-//       class: studentClass,
-//       section,
-//     });
-
-//     if (!result) {
-//       return res.json({
-//         success: false,
-//         message: "result not found! please check your details",
-//       });
-//     }
-
-//     return res.json({
-//       success: true,
-//       message: "Result found successfully",
-//       data: result,
-//     });
-//   } catch (error) {
-//     console.log("Result Not found");
-//     return res.json({
-//       success: false,
-//       message: error?.message || "Internal server error",
-//     });
-//   }
-// });
+};
 
 const searchResult = asyncHandler(async (req, res) => {
   try {
@@ -245,7 +149,7 @@ const searchResult = asyncHandler(async (req, res) => {
     const result = await resultModels.findOne({
       roll: Number(roll),
       class: studentClass,
-      section,
+      section: { $regex: `^${section}$`, $options: "i" },
     });
 
     if (!result) {
