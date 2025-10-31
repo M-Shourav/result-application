@@ -2,7 +2,7 @@ import Result from "@/components/Result";
 
 const Home = () => {
   return (
-    <div>
+    <div className="py-10">
       <Result />
     </div>
   );

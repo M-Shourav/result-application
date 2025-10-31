@@ -1,5 +1,11 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import Container from "./ui/Component";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
@@ -14,6 +20,7 @@ import { Button } from "./ui/button";
 import { FormEvent, useState } from "react";
 import axios from "axios";
 import { StudentResult } from "@/type";
+import Link from "next/link";
 
 // interface ResultData {
 //   _id: string;
@@ -57,9 +64,9 @@ const Result = () => {
     }
   };
   return (
-    <Container className="flex items-center justify-center">
+    <Container className="flex items-center justify-center py-10">
       {result ? (
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-xl">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <p className="text-base text-center">
@@ -85,6 +92,14 @@ const Result = () => {
                 <p className="text-sm">Group :</p>
                 <p className="text-sm mx-2">{result?.section}</p>
               </div>
+              <div className="bg-[#eeeeee] flex items-center p-2 ">
+                <p className="text-sm">Result :</p>
+                <p className="text-sm mx-2">{result?.result}</p>
+              </div>
+              <div className="bg-[#eeeeee] flex items-center p-2 ">
+                <p className="text-sm">GPA :</p>
+                <p className="text-sm mx-2">{result?.gpa}</p>
+              </div>
               <div className="bg-[#eeeeee] col-span-2 flex items-center p-2 ">
                 <p className="text-sm">Institute :</p>
                 <p className="text-sm mx-2">Chilahati Merchant's High School</p>
@@ -96,8 +111,23 @@ const Result = () => {
                 Grade Sheet
               </h2>
               <div className="w-full bg-[#afb7be] flex items-center justify-between px-4 py-1">
+                <p className="text-sm text-black font-bold">Code</p>
                 <p className="text-sm text-black font-bold">Subjects</p>
                 <p className="text-sm text-black font-bold">Marks</p>
+              </div>
+              <div>
+                {result?.subjects.map((item, index) => (
+                  <div
+                    key={item._id}
+                    className={`flex items-center justify-between px-4 py-1 ${
+                      index % 2 === 0 ? "bg-[#eeeeee]" : "bg-gray-300"
+                    }`}
+                  >
+                    <p className="text-sm ">{item?.code}</p>
+                    <p className="text-sm text-start">{item?.name}</p>
+                    <p className="text-sm">{item?.mark}</p>
+                  </div>
+                ))}
               </div>
               {/* <div>
                 <div className="bg-[#eeeeee] flex items-center justify-between px-4 py-1">
@@ -119,6 +149,14 @@ const Result = () => {
               </div> */}
             </div>
           </CardContent>
+          <CardFooter className="flex items-center justify-center">
+            <Button
+              className="bg-transparent text-blue-600  text-center hover:bg-transparent hover:text-red-500"
+              onClick={() => window.location.reload()}
+            >
+              Search again
+            </Button>
+          </CardFooter>
         </Card>
       ) : (
         <Card className="w-full max-w-md">

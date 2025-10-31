@@ -14,7 +14,7 @@ const NavItems = [
 
 const Header = () => {
   return (
-    <div className="w-full h-20">
+    <div className="w-full h-20 fixed top-0 bg-white">
       <Container className="h-full flex items-center justify-between">
         <div>
           <Link href={"/"}>
