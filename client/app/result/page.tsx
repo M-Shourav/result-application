@@ -1,7 +1,11 @@
-import React from "react";
+import Result from "@/components/Result";
 
 const page = () => {
-  return <div>page</div>;
+  return (
+    <div>
+      <Result />
+    </div>
+  );
 };
 
 export default page;

@@ -1,9 +1,9 @@
-import Result from "@/components/Result";
+import Hero from "@/components/Hero";
 
 const Home = () => {
   return (
-    <div className="py-10">
-      <Result />
+    <div>
+      <Hero />
     </div>
   );
 };
