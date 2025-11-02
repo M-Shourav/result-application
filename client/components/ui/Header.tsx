@@ -1,8 +1,9 @@
+"use client";
 import Link from "next/link";
 import Container from "./Component";
 import Image from "next/image";
 import { Logo } from "@/public";
-import Hero from "../Hero";
+import { usePathname } from "next/navigation";
 
 const NavItems = [
   { name: "Home", href: "/" },
@@ -14,8 +15,14 @@ const NavItems = [
 ];
 
 const Header = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   return (
-    <div className="relative">
+    <div
+      className={`fixed top-0 left-0 w-full z-30 ${
+        isHome ? "bg-transparent absolute" : "bg-white shadow"
+      }`}
+    >
       {/* Header */}
       <div className="w-full h-20 z-10 relative text-white bg-[#5592d0]/80 ">
         <Container className="h-full flex items-center justify-between">

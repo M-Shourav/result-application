@@ -1,7 +1,9 @@
+import { Button } from "./ui/button";
+
 const Hero = () => {
   return (
     <div
-      className="absolute top-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-white"
+      className="relative top-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/images/Banner-image.png')" }}
     >
       {/* bg-overly */}
@@ -10,12 +12,15 @@ const Hero = () => {
         <h1 className="text-5xl font-bold">
           Innovative Learning for Every Student
         </h1>
-        <p className="text-lg mt-2 max-w-2xl mx-auto">
+        <p className="text-lg mt-2 max-w-3xl mx-auto">
           Our school management system brings innovation and simplicity to
           education. From attendance tracking to result management — everything
           is just a click away. Empowering schools, teachers, students, and
           parents with a smarter way to learn and manage.
         </p>
+        <Button className="mt-5 text-lg p-6 bg-[#5592d0]/80 hover:bg-[#5592d0]">
+          Explore More
+        </Button>
       </div>
     </div>
   );

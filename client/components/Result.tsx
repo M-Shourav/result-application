@@ -48,7 +48,7 @@ const Result = () => {
     setLoading(true);
     try {
       const res = await axios.get(`${serverUrl}/api/result/search`, {
-        withCredentials: true,
+        // withCredentials: true,
         params: {
           roll,
           class: studentClass,
@@ -69,7 +69,7 @@ const Result = () => {
       {result ? (
         <Card className="w-full max-w-xl">
           <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+            <CardTitle className="flex  items-center justify-center">
               <p className="text-base text-center">
                 Chilahati Merchant's High School Annual Result 2025.
               </p>
