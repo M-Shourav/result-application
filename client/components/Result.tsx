@@ -47,6 +47,7 @@ const Result = () => {
     setLoading(true);
     try {
       const res = await axios.get(`${serverUrl}/api/result/search`, {
+        withCredentials: true,
         params: {
           roll,
           class: studentClass,
