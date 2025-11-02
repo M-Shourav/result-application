@@ -20,8 +20,7 @@ import { Button } from "./ui/button";
 import { FormEvent, useState } from "react";
 import axios from "axios";
 import { StudentResult } from "@/type";
-import Link from "next/link";
-
+import { serverUrl } from "@/utils/config";
 // interface ResultData {
 //   _id: string;
 //   name: string;
@@ -47,7 +46,7 @@ const Result = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:8000/api/result/search", {
+      const res = await axios.get(`${serverUrl}/api/result/search`, {
         params: {
           roll,
           class: studentClass,
