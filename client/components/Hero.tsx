@@ -1,8 +1,3 @@
-import Image from "next/image";
-import Container from "./ui/Component";
-import { BannerImage_0 } from "@/public";
-import Header from "./ui/Header";
-
 const Hero = () => {
   return (
     <div

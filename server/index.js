@@ -8,12 +8,27 @@ const app = express();
 dotenv.config();
 
 const port = process.env.PORT || 8000;
+
+const allowOrigins = process.env.CLIENT_URL;
+
+//  CORS middleware
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Blocked by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 ConnectDB();
-app.use(cors());
+
 app.use(express.json());
-
 app.use(process.env.USER_ROUTES, userRouter);
-
 app.use(process.env.RESULT_ROUTES, resultRoutes);
 
 app.get("/", (req, res) => {
