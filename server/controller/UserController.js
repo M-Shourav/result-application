@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 import userModel from "../models/userModel.js";
-import cloudinary from "../utils/Cloudinary.js";
+import cloudinary from "../utils/cloudinary.js";
 import generateToken from "../utils/generateToken.js";
 import validator from "validator";
 import jwt from "jsonwebtoken";
