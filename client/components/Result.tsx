@@ -102,8 +102,10 @@ const Result = () => {
                 <p className="text-sm mx-2">{result?.gpa}</p>
               </div>
               <div className="bg-[#eeeeee] col-span-2 flex items-center p-2 ">
-                <p className="text-sm">Institute :</p>
-                <p className="text-sm mx-2">Chilahati Merchant's High School</p>
+                <p className="text-xs md:text-sm">Institute :</p>
+                <p className="text-xs md:text-sm mx-2">
+                  Chilahati Merchant's High School
+                </p>
               </div>
             </div>
 
@@ -130,24 +132,6 @@ const Result = () => {
                   </div>
                 ))}
               </div>
-              {/* <div>
-                <div className="bg-[#eeeeee] flex items-center justify-between px-4 py-1">
-                  <p className="text-sm">Bangla</p>
-                  <p className="text-sm text-left">
-                    {result?.subjects?.bangla}
-                  </p>
-                </div>
-                <div className="bg-gray-300 flex items-center justify-between px-4 py-1">
-                  <p className="text-sm">English</p>
-                  <p className="text-sm text-left">
-                    {result?.subjects?.english}
-                  </p>
-                </div>
-                <div className="bg-[#eeeeee] flex items-center justify-between px-4 py-1">
-                  <p className="text-sm">Math</p>
-                  <p className="text-sm text-left">{result?.subjects?.math}</p>
-                </div>
-              </div> */}
             </div>
           </CardContent>
           <CardFooter className="flex items-center justify-center">
