@@ -9,10 +9,10 @@ const Hero = () => {
       {/* bg-overly */}
       <div className=" absolute inset-0 bg-black/50" />
       <div className="text-center  p-6 rounded-lg z-10">
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold">
           Innovative Learning for Every Student
         </h1>
-        <p className="text-lg mt-2 max-w-3xl mx-auto">
+        <p className="text-base md:text-lg mt-2 max-w-3xl mx-auto">
           Our school management system brings innovation and simplicity to
           education. From attendance tracking to result management — everything
           is just a click away. Empowering schools, teachers, students, and

@@ -4,6 +4,7 @@ import Container from "./Component";
 import Image from "next/image";
 import { Logo } from "@/public";
 import { usePathname } from "next/navigation";
+import MobileNavigation from "../MobileNavigation";
 
 const NavItems = [
   { name: "Home", href: "/" },
@@ -19,7 +20,7 @@ const Header = () => {
   const isHome = pathname === "/";
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-30 ${
+      className={` w-full z-30 ${
         isHome ? "bg-transparent absolute" : "bg-white shadow"
       }`}
     >
@@ -36,7 +37,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <div className="hidden md:inline-flex items-center gap-8">
+          <div className="hidden lg:inline-flex items-center gap-8">
             {NavItems?.map((items) => (
               <Link
                 key={items?.name}
@@ -48,6 +49,7 @@ const Header = () => {
               </Link>
             ))}
           </div>
+          <MobileNavigation />
         </Container>
       </div>
     </div>

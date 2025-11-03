@@ -1,12 +1,14 @@
 "use client";
+import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
 interface Props {
   end: number;
   duration?: number;
+  className?: String;
 }
 
-const Counter: React.FC<Props> = ({ end, duration = 200 }) => {
+const Counter: React.FC<Props> = ({ end, duration = 200, className }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     let start = 0;
@@ -20,8 +22,10 @@ const Counter: React.FC<Props> = ({ end, duration = 200 }) => {
     return () => clearInterval(timer);
   }, [end, duration]);
   return (
-    <div className="flex items-center justify-center">
-      <h2 className="text-6xl font-bold text-[#5592d0]">{count}</h2>
+    <div className={cn("flex items-center justify-center", className)}>
+      <h2 className="text-2xl md:text-3xl font-bold text-black group-hover:text-white duration-300">
+        {count}
+      </h2>
     </div>
   );
 };

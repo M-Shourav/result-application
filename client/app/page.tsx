@@ -1,11 +1,11 @@
-import Counter from "@/components/Counter";
+import BottomBanner from "@/components/BottomBanner";
 import Hero from "@/components/Hero";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <Counter end={34} duration={2000} />
+      <BottomBanner />
     </div>
   );
 };
