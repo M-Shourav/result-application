@@ -160,10 +160,10 @@ const Result = () => {
           </CardFooter>
         </Card>
       ) : (
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md ">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <p className="text-base text-center">
+              <p className="text-sm md:text-base text-center">
                 Chilahati Merchant's High School Annual Result 2025.
               </p>
             </CardTitle>
@@ -171,7 +171,7 @@ const Result = () => {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-between gap-4">
                   <div className="w-32">
                     <Label htmlFor="exam">Examination</Label>
                   </div>
