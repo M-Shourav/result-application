@@ -171,11 +171,11 @@ const Result = () => {
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                   <div className="w-32">
                     <Label htmlFor="exam">Examination</Label>
                   </div>
-                  <p className="mx-2">:</p>
+                  <p className="mx-2 hidden md:inline-flex">:</p>
                   <Input
                     id="exam"
                     type="text"
@@ -184,11 +184,11 @@ const Result = () => {
                     className="focus-visible:ring-0 placeholder:text-black"
                   />
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                   <div className="w-32">
                     <Label htmlFor="year">Year</Label>
                   </div>
-                  <p className="mx-2">:</p>
+                  <p className="mx-2 hidden md:inline-flex">:</p>
                   <Input
                     id="year"
                     type="text"
@@ -197,11 +197,11 @@ const Result = () => {
                     className="focus-visible:ring-0 placeholder:text-black"
                   />
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                   <div className="w-32">
                     <Label htmlFor="roll">Roll</Label>
                   </div>
-                  <p className="mx-2">:</p>
+                  <p className="mx-2 hidden md:inline-flex">:</p>
                   <Input
                     id="roll"
                     type="number"
@@ -212,11 +212,11 @@ const Result = () => {
                     className="focus-visible:ring-0 no-spinner"
                   />
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center  gap-4">
                   <div className="w-32">
                     <Label htmlFor="class">Class</Label>
                   </div>
-                  <p className="mx-2">:</p>
+                  <p className="mx-2 hidden md:inline-flex">:</p>
                   <Select
                     value={studentClass}
                     onValueChange={(value) => setStudentClass(value)}
@@ -233,11 +233,11 @@ const Result = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                   <div className="w-32">
                     <Label htmlFor="section">Section</Label>
                   </div>
-                  <p className="mx-2">:</p>
+                  <p className="mx-2 hidden md:inline-flex">:</p>
                   <Select
                     value={section}
                     onValueChange={(value) => setSection(value)}
