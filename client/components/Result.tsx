@@ -21,20 +21,7 @@ import { FormEvent, useState } from "react";
 import axios from "axios";
 import { StudentResult } from "@/type";
 import { serverUrl } from "@/utils/config";
-
-// interface ResultData {
-//   _id: string;
-//   name: string;
-//   roll: number;
-//   class: string;
-//   section: string;
-//   year: string;
-//   subjects: {
-//     bangla: number;
-//     english: number;
-//     math: number;
-//   };
-// }
+import { Loader2 } from "lucide-react";
 
 const Result = () => {
   const [roll, setRoll] = useState<string>("");
@@ -166,6 +153,7 @@ const Result = () => {
                     placeholder="Annual Result"
                     readOnly
                     className="focus-visible:ring-0 placeholder:text-black"
+                    disabled={loading}
                   />
                 </div>
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
@@ -179,6 +167,7 @@ const Result = () => {
                     placeholder="2025"
                     readOnly
                     className="focus-visible:ring-0 placeholder:text-black"
+                    disabled={loading}
                   />
                 </div>
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
@@ -192,6 +181,7 @@ const Result = () => {
                     placeholder="Enter your roll"
                     value={roll}
                     onChange={(e) => setRoll(e.target.value)}
+                    disabled={loading}
                     required
                     className="focus-visible:ring-0 no-spinner"
                   />
@@ -204,6 +194,7 @@ const Result = () => {
                   <Select
                     value={studentClass}
                     onValueChange={(value) => setStudentClass(value)}
+                    disabled={loading}
                   >
                     <SelectTrigger className="w-full cursor-pointer  focus-visible:ring-0">
                       <SelectValue placeholder="Select class" />
@@ -225,6 +216,7 @@ const Result = () => {
                   <Select
                     value={section}
                     onValueChange={(value) => setSection(value)}
+                    disabled={loading}
                   >
                     <SelectTrigger className="w-full cursor-pointer  focus-visible:ring-0">
                       <SelectValue placeholder="Select section/group" />
@@ -240,8 +232,15 @@ const Result = () => {
                 </div>
               </div>
               <div className="mt-10">
-                <Button type="submit" className="w-full">
-                  Submit
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? (
+                    <div className="flex items-center gap-2">
+                      <Loader2 className="mt-1 animate-spin" />
+                      <p>Loading...</p>
+                    </div>
+                  ) : (
+                    "Submit"
+                  )}
                 </Button>
               </div>
             </form>
