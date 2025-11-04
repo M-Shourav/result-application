@@ -17,7 +17,11 @@ const BottomBanner = () => {
               className="text-muted-foreground group-hover:text-white duration-300"
             />
           </span>
-          <Counter end={67} className="block group-hover:text-white" />
+          <Counter
+            end={67}
+            duration={3000}
+            className="block group-hover:text-white"
+          />
           <p className="text-muted-foreground text-base md:text-lg group-hover:text-white duration-300">
             The year founded
           </p>
@@ -32,7 +36,11 @@ const BottomBanner = () => {
               className="text-muted-foreground group-hover:text-white duration-300"
             />
           </span>
-          <Counter end={300} className="block group-hover:text-white" />
+          <Counter
+            end={300}
+            duration={3000}
+            className="block group-hover:text-white"
+          />
           <p className="text-muted-foreground text-base md:text-lg group-hover:text-white duration-300">
             Students In 2025
           </p>
@@ -49,7 +57,7 @@ const BottomBanner = () => {
           </span>
           <Counter
             end={150}
-            duration={100}
+            duration={3000}
             className="block group-hover:text-white"
           />
           <p className="text-muted-foreground text-base md:text-lg group-hover:text-white duration-300">
@@ -69,7 +77,7 @@ const BottomBanner = () => {
           <div className="flex items-center">
             <Counter
               end={300}
-              duration={100}
+              duration={3000}
               className="block group-hover:text-white"
             />
             <p className="text-2xl md:text-3xl font-bold text-black group-hover:text-white duration-300">

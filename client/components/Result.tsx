@@ -22,6 +22,7 @@ import axios from "axios";
 import { StudentResult } from "@/type";
 import { serverUrl } from "@/utils/config";
 import { Loader2 } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Result = () => {
   const [roll, setRoll] = useState<string>("");
@@ -43,8 +44,13 @@ const Result = () => {
         },
       });
 
-      const data = res.data.data;
-      setResult(data);
+      const data = res.data;
+      if (data?.success) {
+        setResult(data.data);
+        toast.success(data?.message);
+      } else {
+        toast.error(data?.message);
+      }
     } catch (error) {
       console.log("Result not found!");
     } finally {
