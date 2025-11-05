@@ -9,7 +9,7 @@ const BottomBanner = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div
           className="flex flex-col items-center justify-center gap-4 border p-10 rounded-md shadow group
-         hover:bg-[#5592d0] duration-300"
+         hover:bg-blue-600 duration-300"
         >
           <span>
             <CalendarFold
@@ -28,7 +28,7 @@ const BottomBanner = () => {
         </div>
         <div
           className="flex flex-col items-center justify-center gap-4 border p-10 rounded-md shadow group
-         hover:bg-[#5592d0] duration-300"
+         hover:bg-blue-500 duration-300"
         >
           <span>
             <GraduationCap
@@ -47,7 +47,7 @@ const BottomBanner = () => {
         </div>
         <div
           className="flex flex-col items-center justify-center gap-4 border p-10 rounded-md shadow group
-         hover:bg-[#5592d0] duration-300"
+         hover:bg-blue-500 duration-300"
         >
           <span>
             <FaUsers
@@ -66,7 +66,7 @@ const BottomBanner = () => {
         </div>
         <div
           className="flex flex-col items-center justify-center gap-4 border p-10 rounded-md shadow group
-         hover:bg-[#5592d0] duration-300"
+         hover:bg-blue-500 duration-300"
         >
           <span>
             <FaUserGraduate

@@ -18,7 +18,7 @@ const Hero = () => {
           is just a click away. Empowering schools, teachers, students, and
           parents with a smarter way to learn and manage.
         </p>
-        <Button className="mt-5 text-lg p-6 bg-[#5592d0]/80 hover:bg-[#5592d0]">
+        <Button className="mt-5 text-lg p-6 bg-blue-500 hover:bg-blue-600">
           Explore More
         </Button>
       </div>

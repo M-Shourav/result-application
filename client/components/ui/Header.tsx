@@ -21,11 +21,11 @@ const Header = () => {
   return (
     <div
       className={` w-full z-30 ${
-        isHome ? "bg-transparent absolute" : "bg-white shadow"
+        isHome ? "bg-transparent absolute" : "bg-blue-900 shadow"
       }`}
     >
       {/* Header */}
-      <div className="w-full h-20 z-10 relative text-white bg-[#5592d0]/80 ">
+      <div className="w-full h-20 z-10 relative text-white">
         <Container className="h-full flex items-center justify-between">
           <div>
             <Link href={"/"}>

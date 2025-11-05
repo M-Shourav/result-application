@@ -1,4 +1,6 @@
+import Academic from "@/components/Academic";
 import BottomBanner from "@/components/BottomBanner";
+import Community from "@/components/Community";
 import Hero from "@/components/Hero";
 
 const Home = () => {
@@ -6,6 +8,8 @@ const Home = () => {
     <div>
       <Hero />
       <BottomBanner />
+      <Community />
+      <Academic />
     </div>
   );
 };
