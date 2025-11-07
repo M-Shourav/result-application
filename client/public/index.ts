@@ -1,4 +1,4 @@
-import Logo from "./images/logo.png";
+import Logo from "./images/logo.svg";
 import BannerImage_0 from "./images/Banner-image.png";
 import EduBanner from "./images/Edu-banner.jpg";
 import Class_Room from "./images/class.jpg";

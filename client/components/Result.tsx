@@ -201,6 +201,7 @@ const Result = () => {
                     value={studentClass}
                     onValueChange={(value) => setStudentClass(value)}
                     disabled={loading}
+                    required
                   >
                     <SelectTrigger className="w-full cursor-pointer  focus-visible:ring-0">
                       <SelectValue placeholder="Select class" />
@@ -223,6 +224,7 @@ const Result = () => {
                     value={section}
                     onValueChange={(value) => setSection(value)}
                     disabled={loading}
+                    required
                   >
                     <SelectTrigger className="w-full cursor-pointer  focus-visible:ring-0">
                       <SelectValue placeholder="Select section/group" />

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
+@import "animate.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -127,4 +126,14 @@
 }
 .no-spinner {
   -moz-appearance: textfield;
+}
+
+.primary-color {
+  background-color: #e5e6e7;
+}
+.gray-color {
+  background-color: #f8f8f8;
+}
+.dark-green {
+  background-color: #019267;
 }
