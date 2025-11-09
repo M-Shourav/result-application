@@ -24,12 +24,12 @@ const TopHeader = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false); // slide out শুরু
+      setFade(false);
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % message.length);
-        setFade(true); // slide in শুরু
-      }, 1000); // 👈 transition সময় ১ সেকেন্ডের সাথে sync
-    }, 10000); // প্রতি ১০ সেকেন্ডে change হবে
+        setFade(true);
+      }, 1000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);

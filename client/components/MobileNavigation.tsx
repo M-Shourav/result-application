@@ -44,38 +44,36 @@ const MobileNavigation = () => {
             </SheetTitle>
           </SheetHeader>
           <div className="flex flex-col gap-4 px-4">
-            <div className="p-2 border-b border-b-gray-200">
-              <Link href={"/"} className="text-sm font-semibold">
+            <div className="p-2 pb-3 border-b border-b-gray-200 -mt-3">
+              <Link
+                href={"/"}
+                className="text-sm font-semibold hover:text-green-600 duration-300"
+              >
                 মূলপাতা
               </Link>
             </div>
             <div className="px-2 border-b border-b-gray-200">
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                defaultValue="item-1"
-              >
+              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-sm font-semibold py-0 pb-3">
+                  <AccordionTrigger className="text-sm font-semibold py-0 pb-3  ">
                     পরিচিতি
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 p-2 pb-4 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       প্রতিষ্ঠানের পরিচিতি
                     </Link>
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 p-2 -mt-3 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       বিদ্যালয়ের তথ্যাদি
                     </Link>
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 mt-2 px-2 hover:text-green-500 duration-500 "
+                      className="text-sm font-semibold text-gray-600  px-2  hover:text-green-500 duration-500 "
                     >
                       স্কুলের পরিচালকের বাণী
                     </Link>
@@ -84,26 +82,21 @@ const MobileNavigation = () => {
               </Accordion>
             </div>
             <div className="px-2 border-b border-b-gray-200">
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                defaultValue="item-1"
-              >
+              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-sm font-semibold py-0 pb-3">
+                  <AccordionTrigger className="text-sm font-semibold py-0 pb-4">
                     জনবল
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 p-2 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       শিক্ষক/শিক্ষিকা
                     </Link>
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 px-2  hover:text-green-500 duration-500"
                     >
                       স্কুল কমিটি সদস্যবৃন্দ
                     </Link>
@@ -112,12 +105,7 @@ const MobileNavigation = () => {
               </Accordion>
             </div>
             <div className="px-2 border-b border-b-gray-200">
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                defaultValue="item-1"
-              >
+              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-sm font-semibold py-0 pb-3">
                     শিক্ষার্থী
@@ -125,13 +113,13 @@ const MobileNavigation = () => {
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 p-2 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       অধ্যয়নর‍ত শিক্ষার্থীর সংখ্যা
                     </Link>
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 px-2 hover:text-green-500 duration-500"
                     >
                       অধ্যয়নর‍ত শিক্ষার্থীর তালিকা
                     </Link>
@@ -140,26 +128,21 @@ const MobileNavigation = () => {
               </Accordion>
             </div>
             <div className="px-2 border-b border-b-gray-200">
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full"
-                defaultValue="item-1"
-              >
+              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-sm font-semibold py-0 pb-3">
+                  <AccordionTrigger className="text-sm font-semibold py-0 pb-4">
                     পরিক্ষার ফলাফল
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
                       href={"/"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 p-2 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       পাবলিক পরীক্ষা
                     </Link>
                     <Link
                       href={"/result"}
-                      className="text-sm font-semibold text-gray-600 p-2 border-b border-b-gray-200 hover:text-green-500 duration-500"
+                      className="text-sm font-semibold text-gray-600 px-2  hover:text-green-500 duration-500"
                     >
                       বিদ্যালয়ের অভ্যন্তরীণ পরীক্ষা
                     </Link>
@@ -167,17 +150,18 @@ const MobileNavigation = () => {
                 </AccordionItem>
               </Accordion>
             </div>
-            <div className="p-2 border-b border-b-gray-200">
+            <div className="p-2 border-b -mt-3 border-b-gray-200">
               <Link href={"/"} className="text-sm font-semibold">
                 ছবির গ্যালারী
               </Link>
             </div>
-            <div className="p-2 border-b border-b-gray-200">
+            <div className="p-2 -mt-3 border-b border-b-gray-200">
               <Link href={"/"} className="text-sm font-semibold">
                 যোগাযোগ
               </Link>
             </div>
           </div>
+
           <SheetFooter>
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-10">
               <div className="flex items-center gap-1">
