@@ -10,11 +10,10 @@ const Header = () => {
   return (
     <Container className={"mt-5"}>
       <div className="bg-white rounded-md p-5 flex items-center justify-between">
-        <div>
-          <Link href={"/"}>
-            <Image src={Logo} alt="logo" />
-          </Link>
-        </div>
+        <Link href={"/"} className="w-52 md:w-full">
+          <Image src={Logo} alt="logo" />
+        </Link>
+
         <MobileNavigation />
       </div>
     </Container>

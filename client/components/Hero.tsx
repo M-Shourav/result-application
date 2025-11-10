@@ -14,9 +14,9 @@ import Image from "next/image";
 import { slider_1, slider_2, slider_3 } from "@/public";
 
 const slider = [
-  { image: slider_1, text: "স্বাগতম এক্সয়াইজেট স্কুল এন্ড কলেজের পক্ষ থেকে" },
-  { image: slider_2, text: "test2" },
-  { image: slider_3, text: "test3" },
+  { image: slider_1, text: "স্বাগতম এক্সয়াইজেট স্কুল এবং কলেজ এর পক্ষ থেকে" },
+  { image: slider_2, text: "স্বাগতম এক্সয়াইজেট স্কুল এবং কলেজ এর পক্ষ থেকে" },
+  { image: slider_3, text: "স্বাগতম এক্সয়াইজেট স্কুল এবং কলেজ এর পক্ষ থেকে" },
 ];
 
 const Hero = () => {
@@ -28,14 +28,15 @@ const Hero = () => {
         <CarouselContent>
           {slider.map((item, index) => (
             <CarouselItem key={index}>
-              <div className="p-1 h-[450px]">
-                <Card className="py-0 bg-transparent relative">
+              <div className="p-1">
+                <Card className="py-0 bg-transparent relative h-80 md:h-[450px] rounded-md overflow-hidden">
                   <Image
                     src={item.image}
                     alt={`slider_${index}`}
                     className="w-full h-full object-cover"
                   />
-                  <h2 className=" absolute bottom-10 left-[20%] text-3xl font-semibold text-white text-center animate__animated animate__fadeInUp">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+                  <h2 className="w-full max-w-2xl p-2 mx-auto absolute bottom-18 md:bottom-10 md:left-[25%] z-10 text-2xl md:text-4xl font-extrabold text-white text-center animate__animated animate__fadeInUp md:leading-11">
                     {item?.text}
                   </h2>
                 </Card>
@@ -43,9 +44,9 @@ const Hero = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute bottom-10 right-15">
-          <CarouselPrevious />
-          <CarouselNext />
+        <div className="absolute bottom-10 right-15 z-10">
+          <CarouselPrevious className="rounded-md" />
+          <CarouselNext className=" rounded-md" />
         </div>
       </Carousel>
     </Container>

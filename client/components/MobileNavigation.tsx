@@ -33,14 +33,18 @@ const MobileNavigation = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Menu
-            className="text-green-600 w-full h-full cursor-pointer"
+            className="text-green-600 w-full h-full cursor-pointer -mt-2"
             size={30}
           />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader className="bg-green-50">
             <SheetTitle>
-              <Image src={Logo} alt="logo" className="max-w-[200px] h-full " />
+              <Image
+                src={Logo}
+                alt="logo"
+                className="w-[120px] md:w-[200px] h-full mt-2 md:mt-0 "
+              />
             </SheetTitle>
           </SheetHeader>
           <div className="flex flex-col gap-4 px-4">

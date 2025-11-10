@@ -40,7 +40,7 @@ const TopHeader = () => {
         <div className="w-24 h-10 p-4 dark-green flex items-center justify-center rounded-md text-white">
           <p className="text-base font-semibold">আপডেট</p>
         </div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden hidden md:inline-block">
           <Link
             href={message[index].link}
             className={`inline-flex transform transition-all duration-1000 ease-in-out ${
@@ -49,6 +49,25 @@ const TopHeader = () => {
           >
             {message[index].text}
           </Link>
+        </div>
+        <div className="inline-flex md:hidden overflow-hidden whitespace-nowrap py-2">
+          <div className="animate-marquee inline-block">
+            {message.map((item, i) => (
+              <Link key={i} href={item.link} className="mx-10 inline-block">
+                {item.text}
+              </Link>
+            ))}
+            {/* duplicate for infinite loop effect */}
+            {message.map((item, i) => (
+              <Link
+                key={`copy-${i}`}
+                href={item.link}
+                className="mx-10 inline-block"
+              >
+                {item.text}
+              </Link>
+            ))}
+          </div>
         </div>
       </Container>
     </div>
