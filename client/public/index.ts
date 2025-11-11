@@ -12,7 +12,8 @@ import Awards_img from "./images/photo-1594122230689-45899d9e6f69.jpeg";
 import slider_1 from "./images/slider-img-1.png";
 import slider_2 from "./images/slider-img-2.png";
 import slider_3 from "./images/slider-img-3.png";
-
+import school_Img from "./images/School.png";
+import InfoImg from "./images/info-2.svg";
 export {
   Logo,
   BannerImage_0,
@@ -28,4 +29,6 @@ export {
   slider_1,
   slider_2,
   slider_3,
+  school_Img,
+  InfoImg,
 };

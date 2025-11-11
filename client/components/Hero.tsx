@@ -29,7 +29,7 @@ const Hero = () => {
           {slider.map((item, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <Card className="py-0 bg-transparent relative h-80 md:h-[450px] rounded-md overflow-hidden">
+                <Card className="py-0 bg-transparent relative h-80 md:h-[500px] rounded-md overflow-hidden">
                   <Image
                     src={item.image}
                     alt={`slider_${index}`}
