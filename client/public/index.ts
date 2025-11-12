@@ -14,6 +14,9 @@ import slider_2 from "./images/slider-img-2.png";
 import slider_3 from "./images/slider-img-3.png";
 import school_Img from "./images/School.png";
 import InfoImg from "./images/info-2.svg";
+import teacher_1 from "./images/teacher/img-1.png";
+import teacher_2 from "./images/teacher/img-2.png";
+import quote from "./images/teacher/quote.svg";
 export {
   Logo,
   BannerImage_0,
@@ -31,4 +34,7 @@ export {
   slider_3,
   school_Img,
   InfoImg,
+  teacher_1,
+  teacher_2,
+  quote,
 };
