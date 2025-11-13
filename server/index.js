@@ -4,6 +4,7 @@ import cors from "cors";
 import ConnectDB from "./config/ConnectDB.js";
 import userRouter from "./routes/UserRoutes.js";
 import resultRoutes from "./routes/resultRoutes.js";
+import teacherRouter from "./routes/teacherRoutes.js";
 const app = express();
 dotenv.config();
 
@@ -28,10 +29,12 @@ app.use(cors());
 // );
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(process.env.USER_ROUTES, userRouter);
 
 app.use(process.env.RESULT_ROUTES, resultRoutes);
+app.use(process.env.TEACHER_ROUTES, teacherRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello Server");

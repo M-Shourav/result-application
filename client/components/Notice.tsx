@@ -176,7 +176,9 @@ const Notice = () => {
             </div>
           </div>
         </div>
+
         {/* school management lecture */}
+
         <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20">
           <div className="lg:col-span-2 w-full">
             <div className="relative flex items-end gap-x-2">
