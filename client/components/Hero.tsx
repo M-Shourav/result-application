@@ -36,7 +36,7 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
-                  <h2 className="w-full max-w-2xl p-2 mx-auto absolute bottom-18 md:bottom-10 md:left-[25%] z-10 text-2xl md:text-4xl font-extrabold text-white text-center animate__animated animate__fadeInUp md:leading-11">
+                  <h2 className="w-full max-w-2xl p-2 md:px-8 lg:px-0 mx-auto absolute bottom-18 md:bottom-10 md:left-[15%] lg:left-[25%] z-10 text-xl md:text-4xl font-extrabold text-white text-center animate__animated animate__fadeInUp md:leading-11">
                     {item?.text}
                   </h2>
                 </Card>

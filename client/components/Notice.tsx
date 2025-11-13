@@ -19,7 +19,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { MegaphoneOff } from "lucide-react";
+import { CircleAlert, Link, MegaphoneOff, TowerControl } from "lucide-react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import {
   Carousel,
@@ -50,18 +50,18 @@ const Notice = () => {
   return (
     <div className="w-full bg-white/80">
       <Container className={"py-15"}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="relative md:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="relative lg:col-span-1 w-full">
             <div className="w-full">
               <Image
                 src={school_Img}
                 alt="school-image"
-                className="w-[450px] h-full object-cover"
+                className="w-[450px] md:w-[550px] h-[350px] md:h-full object-cover"
               />
             </div>
             <div className="md:absolute mt-10 md:mt-0 top-10 left-52 w-full">
               <Card className="w-full max-w-xl py-2 pb-6">
-                <CardHeader className="pb-0">
+                <CardHeader className="pb-0 p-4">
                   <CardTitle>
                     <h2 className="text-2xl font-semibold">
                       প্রতিষ্ঠান সম্পর্কে
@@ -70,7 +70,7 @@ const Notice = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm font-semibold text-black">
+                  <p className="text-sm font-semibold text-black leading-relaxed">
                     এক্সওয়াইজেধ স্কুল এবং কলেজ এর অতীত গৌরবোজ্জ্বল বর্তমান
                     প্রশংসনীয়। ২০২৩ ইংরেজীর ২০ শে জানুয়ারী এক্সওয়াইজেধ স্কুল এবং
                     কলেজ এর স্থানীয় ম্যাজিষ্ট্রেট অফিসের তৎকালীন প্রধান কারণিক
@@ -91,21 +91,14 @@ const Notice = () => {
           </div>
           <div className="bg-gray-100 rounded-md px-3 py-2">
             <div className="flex items-center justify-center gap-4 p-6">
-              <MegaphoneOff
-                className="-rotate-25 transition-all mt-1 text-red-500"
-                size={40}
-              />
-              <h2 className="text-2xl font-semibold">নোটিশ বোর্ড</h2>
+              <MegaphoneOff className="-rotate-25 transition-all mt-1 text-red-500 w-10 h-10" />
+              <h2 className="text-xl md:text-2xl font-semibold">নোটিশ বোর্ড</h2>
             </div>
             <div className="flex flex-col gap-4 pb-4">
               <div className="w-full flex items-center justify-between bg-white p-2 py-4 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-7 h-7 object-cover shrink"
-                  />
-                  <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
+                  <CircleAlert className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <p className="text-xs md:text-sm font-semibold leading-snug wrap-break-words px-2">
                     আগামীকাল মহান স্বাধীনতা দিবস উপলক্ষে স্কুল এবং কলেজ বন্ধ...
                   </p>
                 </div>
@@ -118,12 +111,8 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 py-4 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-7 h-7 object-cover shrink"
-                  />
-                  <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
+                  <CircleAlert className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <p className="text-xs md:text-sm leading-wider font-semibold leading-snug wrap-break-words px-2">
                     ২০২৪ ভর্তি সংক্রান্ত জরুরী বিজ্ঞপ্তী!
                   </p>
                 </div>
@@ -137,12 +126,8 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 py-4 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-7 h-7 object-cover shrink"
-                  />
-                  <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
+                  <CircleAlert className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <p className="text-xs md:text-sm leading-wider font-semibold leading-snug wrap-break-words px-2">
                     সকল শ্রেনির ১ম সেমিষ্টার পরীক্ষার রুটিন
                   </p>
                 </div>
@@ -155,12 +140,8 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 py-4 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-7 h-7 object-cover shrink"
-                  />
-                  <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
+                  <CircleAlert className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <p className="text-xs md:text-sm leading-wider font-semibold leading-snug wrap-break-words px-2">
                     বেতন সংক্রান্ত জরুরী বিজ্ঞপ্তী!
                   </p>
                 </div>
@@ -174,12 +155,8 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 py-4 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-7 h-7 object-cover shrink"
-                  />
-                  <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
+                  <CircleAlert className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <p className="text-xs md:text-sm leading-wider font-semibold leading-snug wrap-break-words px-2">
                     পহেলা বৈশাখ উপলক্ষে আগামীকাল স্কুল ও কলেজ বন্ধ
                   </p>
                 </div>
@@ -200,13 +177,13 @@ const Notice = () => {
           </div>
         </div>
         {/* school management lecture */}
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-          <div className=" col-span-2">
+        <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20">
+          <div className="lg:col-span-2 w-full">
             <div className="relative flex items-end gap-x-2">
-              <h2 className="text-xl md:text-3xl font-bold tracking-tight">
+              <h2 className="text-lg md:text-3xl font-semibold md:font-bold tracking-tight">
                 স্কুল পরিচালকদের বাণী
               </h2>
-              <div className="w-[300px] h-0.5 bg-gray-200" />
+              <div className="w-[300px] hidden md:inline-block h-0.5 bg-gray-200" />
             </div>
             <Carousel
               plugins={[autoplay.current]}
@@ -216,13 +193,13 @@ const Notice = () => {
                 {slider.map((item, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <Card className="w-full p-4 bg-transparent relative h-80 md:h-[500px] rounded-md overflow-hidden">
+                      <Card className="w-full md:p-4 bg-transparent relative h-auto rounded-md overflow-hidden">
                         <CardHeader>
-                          <CardTitle className="flex items-center gap-4">
+                          <CardTitle className="flex flex-col md:flex-row items-center gap-4">
                             <div>
                               <Image src={item?.image} alt={item?.name} />
                             </div>
-                            <div className="flex flex-col items-start gap-4">
+                            <div className="flex flex-col items-center md:items-start gap-4">
                               <Image src={quote} alt="quote-image" />
                               <h3 className="text-xl md:text-2xl font-bold leading-tight">
                                 {item?.lastName}
@@ -253,24 +230,17 @@ const Notice = () => {
               </div>
             </Carousel>
           </div>
-          <div className="bg-gray-100 rounded-md px-3 py-2 -mt-10">
+          <div className="w-full bg-gray-100 rounded-md px-3 py-2 -mt-10">
             <div className="flex items-center justify-center gap-4 p-6">
-              <MegaphoneOff
-                className="-rotate-25 transition-all mt-1 text-red-500"
-                size={40}
-              />
-              <h2 className="text-2xl font-semibold">
+              <TowerControl className="text-[#f45050]" size={40} />
+              <h2 className="text-xl md:text-2xl font-semibold">
                 গুরুত্বপূর্ণ লিঙ্ক সমূহ
               </h2>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-4">
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     শিক্ষা মন্ত্রনালয়
                   </p>
@@ -284,11 +254,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা..
                   </p>
@@ -303,11 +269,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     পরীক্ষার রেজাল্ট
                   </p>
@@ -321,11 +283,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     ব্যানবেইস
                   </p>
@@ -340,11 +298,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     নায়েম
                   </p>
@@ -359,11 +313,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     এনসিটিবি
                   </p>
@@ -378,11 +328,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     শিক্ষক বাতায়ন
                   </p>
@@ -397,11 +343,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Image
-                    src={InfoImg}
-                    alt="info-image"
-                    className="w-5 h-5 object-cover shrink"
-                  />
+                  <Link className="text-[#f45050]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     কিশোর বাতায়ন
                   </p>
