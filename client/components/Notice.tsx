@@ -51,7 +51,7 @@ const Notice = () => {
     <div className="w-full bg-white/80">
       <Container className={"py-15"}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="relative lg:col-span-1 w-full">
+          <div className="relative lg:col-span-2 w-full">
             <div className="w-full">
               <Image
                 src={school_Img}
