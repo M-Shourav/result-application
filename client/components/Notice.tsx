@@ -2,15 +2,7 @@
 import React, { useRef } from "react";
 import Container from "./ui/Component";
 import Image from "next/image";
-import {
-  InfoImg,
-  quote,
-  school_Img,
-  slider_1,
-  slider_2,
-  teacher_1,
-  teacher_2,
-} from "@/public";
+import { quote, school_Img, teacher_1, teacher_2 } from "@/public";
 import {
   Card,
   CardContent,
@@ -19,8 +11,9 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { CircleAlert, Link, MegaphoneOff, TowerControl } from "lucide-react";
+import { CircleAlert, MegaphoneOff, TowerControl } from "lucide-react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { IoIosLink } from "react-icons/io";
 import {
   Carousel,
   CarouselContent,
@@ -89,7 +82,7 @@ const Notice = () => {
               </Card>
             </div>
           </div>
-          <div className="bg-gray-100 rounded-md px-3 py-2">
+          <div className="bg-gray-100 rounded-md px-3 py-2 h-fit">
             <div className="flex items-center justify-center gap-4 p-6">
               <MegaphoneOff className="-rotate-25 transition-all mt-1 text-red-500 w-10 h-10" />
               <h2 className="text-xl md:text-2xl font-semibold">নোটিশ বোর্ড</h2>
@@ -160,7 +153,6 @@ const Notice = () => {
                     পহেলা বৈশাখ উপলক্ষে আগামীকাল স্কুল ও কলেজ বন্ধ
                   </p>
                 </div>
-
                 <Button
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
@@ -169,7 +161,7 @@ const Notice = () => {
                 </Button>
               </div>
               <div className="flex items-center justify-center mt-2">
-                <Button className="bg-[#019267] text-base font-extrabold py-4 hover:bg-[#daf9f0] hover:text-[#019267] duration-300">
+                <Button className="bg-[#019267] text-base font-extrabold hover:bg-[#daf9f0] hover:text-[#019267] duration-300">
                   সকল নোটিশ <FaArrowRightLong />
                 </Button>
               </div>
@@ -242,7 +234,7 @@ const Notice = () => {
             <div className="w-full flex flex-col gap-4">
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     শিক্ষা মন্ত্রনালয়
                   </p>
@@ -256,7 +248,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা..
                   </p>
@@ -271,7 +263,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     পরীক্ষার রেজাল্ট
                   </p>
@@ -285,7 +277,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     ব্যানবেইস
                   </p>
@@ -300,7 +292,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     নায়েম
                   </p>
@@ -315,7 +307,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     এনসিটিবি
                   </p>
@@ -330,7 +322,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
+                  <IoIosLink className="text-[#f45050] shrink-0 w-[30px] h-[30px]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     শিক্ষক বাতায়ন
                   </p>
@@ -345,7 +337,7 @@ const Notice = () => {
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
                 <div className="flex items-center flex-1">
-                  <Link className="text-[#f45050]" />
+                  <IoIosLink className="text-[#f45050]" />
                   <p className="text-sm font-semibold leading-snug wrap-break-words px-2">
                     কিশোর বাতায়ন
                   </p>

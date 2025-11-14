@@ -12,6 +12,7 @@ import { Card } from "./ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { slider_1, slider_2, slider_3 } from "@/public";
+import Link from "next/link";
 
 const slider = [
   { image: slider_1, text: "স্বাগতম এক্সয়াইজেট স্কুল এবং কলেজ এর পক্ষ থেকে" },

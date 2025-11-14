@@ -20,3 +20,27 @@ export interface StudentResult {
   updatedAt: string;
   __v: number;
 }
+
+export interface TeacherDataType {
+  _id: string;
+  slug: string;
+  name: string;
+  title: string;
+  quote: string;
+  psdId: string;
+  joiningDate: string;
+  createdAt: string;
+  updatedAt: string;
+  avatar: {
+    public_id: string;
+    url: string;
+    _id: string;
+  };
+  socialLinks: {
+    phone: string;
+    email: string;
+    facebook: string;
+    linkedin: string;
+  };
+  __v: number;
+}
