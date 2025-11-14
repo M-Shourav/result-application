@@ -14,8 +14,6 @@ ConnectDB();
 //Allow Origins
 const allowOrigins = [process.env.CLIENT_URL, process.env.ADMIN_URL];
 
-app.use(cors());
-//  CORS middleware
 app.use(
   cors({
     origin: function (origin, callback) {
