@@ -35,14 +35,17 @@ const Result = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.get(`${serverUrl}/api/result/search`, {
-        withCredentials: true,
-        params: {
-          roll,
-          class: studentClass,
-          section,
-        },
-      });
+      const res = await axios.get(
+        `https://result-application-1w09.onrender.com/api/result/search`,
+        {
+          withCredentials: true,
+          params: {
+            roll,
+            class: studentClass,
+            section,
+          },
+        }
+      );
 
       const data = res.data;
       if (data?.success) {
