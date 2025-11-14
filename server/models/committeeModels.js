@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import Mongoose from "mongoose";
+import slugify from "slugify";
 
-//  BANGLA SLUG GENERATOR
+// bangla slug generator
 
 function banglaSlug(text) {
   return text
@@ -20,37 +21,28 @@ function banglaSlug(text) {
     .toLowerCase();
 }
 
-const TeacherSchema = new mongoose.Schema(
+const CommitteeSchema = new Mongoose.Schema(
   {
     name: { type: String, required: true },
-
     slug: {
       type: String,
       unique: true,
       lowercase: true,
     },
-
+    title: { type: String, required: true },
+    memberJoin: { type: String, required: true },
+    membershipTerm: { type: String, required: true },
     avatar: {
       type: {
         url: String,
         public_id: String,
       },
-      required: true,
     },
-
-    title: { type: String, required: true },
-
-    quote: { type: mongoose.Schema.Types.Mixed, required: true },
-
-    psdId: { type: String, required: true, unique: true },
-
-    joiningDate: { type: Date, required: true },
-
     socialLinks: {
-      phone: String,
-      email: String,
-      facebook: String,
-      linkedin: String,
+      phone: { type: String },
+      email: { type: String },
+      facebook: { type: String },
+      linkedin: { type: String },
     },
   },
   {
@@ -59,12 +51,12 @@ const TeacherSchema = new mongoose.Schema(
 );
 
 // AUTO SLUG GENERATION
-TeacherSchema.pre("save", function (next) {
+CommitteeSchema.pre("save", function (next) {
   if (this.isModified("name")) {
     this.slug = banglaSlug(this.name);
   }
   next();
 });
 
-const teacherModels = mongoose.model("teacher-data", TeacherSchema);
-export default teacherModels;
+const committeeModels = Mongoose.model("committee", CommitteeSchema);
+export default committeeModels;

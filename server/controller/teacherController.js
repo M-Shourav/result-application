@@ -2,6 +2,101 @@ import asyncHandler from "express-async-handler";
 import teacherModels from "../models/TeachersModels.js";
 import cloudinary from "../utils/cloudinary.js";
 
+// const createTeacherData = asyncHandler(async (req, res) => {
+//   try {
+//     const { name, title, quote, psdId, joiningDate } = req.body;
+
+//     const socialLinks = {
+//       phone: req.body["socialLinks.phone"],
+//       email: req.body["socialLinks.email"],
+//       facebook: req.body["socialLinks.facebook"],
+//       linkedin: req.body["socialLinks.linkedin"],
+//     };
+
+//     if (!name) {
+//       return res.json({
+//         success: false,
+//         message: "name is required!",
+//       });
+//     }
+//     if (!title) {
+//       return res.json({
+//         success: false,
+//         message: "title is required!",
+//       });
+//     }
+//     if (!quote) {
+//       return res.json({
+//         success: false,
+//         message: "quote is required!",
+//       });
+//     }
+//     if (!psdId) {
+//       return res.json({
+//         success: false,
+//         message: "PsdId is required!",
+//       });
+//     }
+//     if (!joiningDate) {
+//       return res.json({
+//         success: false,
+//         message: "JoiningDate is required!",
+//       });
+//     }
+
+//     // check teacher have or not
+//     const ExistingTeacher = await teacherModels.findOne({ psdId });
+//     if (ExistingTeacher) {
+//       return res.json({
+//         success: false,
+//         message: "teacher Data already create.",
+//       });
+//     }
+
+//     let avatar = null;
+
+//     if (req.file) {
+//       const file = cloudinary.uploader.upload(req.file?.path, {
+//         resource_type: "image",
+//         folder: "teachers-images",
+//       });
+//       avatar = {
+//         url: (await file).secure_url,
+//         public_id: (await file).public_id,
+//       };
+//     } else {
+//       return res.json({
+//         success: false,
+//         message: "avatar is required.",
+//       });
+//     }
+
+//     // create teacher Data
+//     const teacher = new teacherModels({
+//       name,
+//       avatar,
+//       quote,
+//       title,
+//       psdId,
+//       joiningDate,
+//       socialLinks,
+//     });
+
+//     await teacher.save();
+//     return res.json({
+//       success: true,
+//       message: "teacher data create successfully!",
+//       teacher,
+//     });
+//   } catch (error) {
+//     console.log("teacher data create failed", error);
+//     return res.json({
+//       success: false,
+//       message: error?.message || "Internal server error",
+//     });
+//   }
+// });
+
 const createTeacherData = asyncHandler(async (req, res) => {
   try {
     const { name, title, quote, psdId, joiningDate } = req.body;
@@ -13,66 +108,43 @@ const createTeacherData = asyncHandler(async (req, res) => {
       linkedin: req.body["socialLinks.linkedin"],
     };
 
-    if (!name) {
+    // Required fields validation
+    if (!name || !title || !quote || !psdId || !joiningDate) {
       return res.json({
         success: false,
-        message: "name is required!",
-      });
-    }
-    if (!title) {
-      return res.json({
-        success: false,
-        message: "title is required!",
-      });
-    }
-    if (!quote) {
-      return res.json({
-        success: false,
-        message: "quote is required!",
-      });
-    }
-    if (!psdId) {
-      return res.json({
-        success: false,
-        message: "PsdId is required!",
-      });
-    }
-    if (!joiningDate) {
-      return res.json({
-        success: false,
-        message: "JoiningDate is required!",
+        message: "All required fields must be filled!",
       });
     }
 
-    // check teacher have or not
+    // Check duplicate teacher by PSD ID
     const ExistingTeacher = await teacherModels.findOne({ psdId });
     if (ExistingTeacher) {
       return res.json({
         success: false,
-        message: "teacher Data already create.",
+        message: "Teacher data already exists.",
       });
     }
 
-    let avatar = null;
-
-    if (req.file) {
-      const file = cloudinary.uploader.upload(req.file?.path, {
-        resource_type: "image",
-        folder: "teachers-images",
-      });
-      avatar = {
-        url: (await file).secure_url,
-        public_id: (await file).public_id,
-      };
-    } else {
+    // Avatar upload
+    if (!req.file) {
       return res.json({
         success: false,
-        message: "avatar is required.",
+        message: "Avatar image is required.",
       });
     }
 
-    // create teacher Data
-    const teacher = await teacherModels.create({
+    const cloudUpload = cloudinary.uploader.upload(req.file.path, {
+      resource_type: "image",
+      folder: "teachers-images",
+    });
+
+    const avatar = {
+      url: (await cloudUpload).secure_url,
+      public_id: (await cloudUpload).public_id,
+    };
+
+    // Create teacher document (slug will auto-generate here)
+    const teacher = new teacherModels({
       name,
       avatar,
       quote,
@@ -81,19 +153,23 @@ const createTeacherData = asyncHandler(async (req, res) => {
       joiningDate,
       socialLinks,
     });
+
+    await teacher.save(); // <-- Now slug will generate correctly
+
     return res.json({
       success: true,
-      message: "teacher data create successfully!",
+      message: "Teacher data created successfully!",
       teacher,
     });
   } catch (error) {
     console.log("teacher data create failed", error);
     return res.json({
       success: false,
-      message: error?.message || "Internal server error",
+      message: error.message || "Internal server error",
     });
   }
 });
+
 const deleteTeacherData = asyncHandler(async (req, res) => {
   try {
     const teacherData = await teacherModels.findById(req.params.id);
@@ -184,7 +260,8 @@ const updateTeacherData = asyncHandler(async (req, res) => {
 });
 const singleTeacherData = asyncHandler(async (req, res) => {
   try {
-    const teacher = await teacherModels.findById(req.params.id);
+    const { slug } = req?.params;
+    const teacher = await teacherModels.findOne({ slug });
     if (!teacher) {
       return res.json({
         success: false,

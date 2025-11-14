@@ -12,7 +12,7 @@ const teacherRouter = Router();
 
 teacherRouter.post("/teachers", upload.single("avatar"), createTeacherData); //create teacher
 teacherRouter.post("/teachers/:id", deleteTeacherData); //delete teacher data
-teacherRouter.get("/single-teacher/:id", singleTeacherData); //single teacher data
+teacherRouter.get("/single-teacher/:slug", singleTeacherData); //single teacher data
 teacherRouter.put(
   "/update-teacher/:id",
   upload.single("avatar"),

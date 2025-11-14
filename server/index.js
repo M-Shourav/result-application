@@ -5,6 +5,7 @@ import ConnectDB from "./config/ConnectDB.js";
 import userRouter from "./routes/UserRoutes.js";
 import resultRoutes from "./routes/resultRoutes.js";
 import teacherRouter from "./routes/teacherRoutes.js";
+import committeeRouter from "./routes/committeeRoutes.js";
 const app = express();
 dotenv.config();
 
@@ -35,6 +36,7 @@ app.use(process.env.USER_ROUTES, userRouter);
 
 app.use(process.env.RESULT_ROUTES, resultRoutes);
 app.use(process.env.TEACHER_ROUTES, teacherRouter);
+app.use(process.env.COMMITTEE_ROUTES, committeeRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello Server");
