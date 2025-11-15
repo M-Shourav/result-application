@@ -17,6 +17,9 @@ import InfoImg from "./images/info-2.svg";
 import teacher_1 from "./images/teacher/img-1.png";
 import teacher_2 from "./images/teacher/img-2.png";
 import quote from "./images/teacher/quote.svg";
+import gallery_1 from "./images/gallery/img-1 (2).png";
+import gallery_2 from "./images/gallery/img-2 (3).png";
+import gallery_3 from "./images/gallery/img-3 (2).png";
 export {
   Logo,
   BannerImage_0,
@@ -37,4 +40,7 @@ export {
   teacher_1,
   teacher_2,
   quote,
+  gallery_1,
+  gallery_2,
+  gallery_3,
 };

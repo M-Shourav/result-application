@@ -13,7 +13,6 @@ const Header = () => {
         <Link href={"/"} className="w-52 md:w-full">
           <Image src={Logo} alt="logo" />
         </Link>
-
         <MobileNavigation />
       </div>
     </Container>

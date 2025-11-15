@@ -25,7 +25,11 @@ const Hero = () => {
 
   return (
     <Container className="py-5">
-      <Carousel plugins={[autoplay.current]} className="w-full">
+      <Carousel
+        plugins={[autoplay.current]}
+        opts={{ loop: true }}
+        className="w-full"
+      >
         <CarouselContent>
           {slider.map((item, index) => (
             <CarouselItem key={index}>

@@ -181,6 +181,7 @@ const Notice = () => {
             </div>
             <Carousel
               plugins={[autoplay.current]}
+              opts={{ loop: true }}
               className="w-full mt-4 bg-[#f8f8f8]"
             >
               <CarouselContent>
