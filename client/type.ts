@@ -44,3 +44,28 @@ export interface TeacherDataType {
   };
   __v: number;
 }
+
+export interface CommitteeMember {
+  _id: string;
+  name: string;
+  title: string;
+
+  memberJoin: string;
+  membershipTerm: string;
+
+  createdAt: string;
+  updatedAt: string;
+
+  avatar: {
+    url: string;
+    public_id: string;
+    _id: string;
+  };
+
+  socialLinks: {
+    phone: string;
+    email: string;
+    facebook: string;
+    linkedin: string;
+  };
+}

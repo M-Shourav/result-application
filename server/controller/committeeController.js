@@ -176,8 +176,8 @@ const updateCommittee = asyncHandler(async (req, res) => {
 });
 const getallCommittee = asyncHandler(async (req, res) => {
   try {
-    const total = await teacherModels.countDocuments({});
-    const committeeList = await teacherModels.find();
+    const total = await committeeModels.countDocuments({});
+    const committeeList = await committeeModels.find();
     return res.json({
       success: true,
       total,
