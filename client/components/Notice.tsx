@@ -22,6 +22,7 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
 const slider = [
   {
@@ -241,10 +242,17 @@ const Notice = () => {
                   </p>
                 </div>
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://shed.gov.bd"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -256,10 +264,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://shed.gov.bd"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -270,10 +285,17 @@ const Notice = () => {
                   </p>
                 </div>
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"http://www.educationboardresults.gov.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -285,10 +307,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://banbeis.gov.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -300,10 +329,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://naem.gov.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -315,10 +351,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://nctb.gov.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -330,10 +373,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://www.teachers.gov.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
               <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
@@ -345,10 +395,17 @@ const Notice = () => {
                 </div>
 
                 <Button
+                  asChild
                   className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                   size="sm"
                 >
-                  ভিজিট করুন
+                  <Link
+                    href={"https://konnect.edu.bd/"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ভিজিট করুন
+                  </Link>
                 </Button>
               </div>
             </div>

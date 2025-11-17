@@ -62,7 +62,7 @@ const page = () => {
                 <House className="w-5 h-5" /> মূলপাতা
               </Link>
               <ChevronRight />
-              <Link href={"/"} className="text-green-700 font-bold">
+              <Link href={"/teacher"} className="text-green-700 font-bold">
                 শিক্ষক/শিক্ষিকা
               </Link>
             </div>

@@ -228,10 +228,17 @@ const TeacherList = () => {
                       </p>
                     </div>
                     <Button
+                      asChild
                       className="py-1 bg-green-100/50 text-green-600 text-xs font-semibold rounded-full hover:bg-green-700 hover:text-white duration-300"
                       size="sm"
                     >
-                      ভিজিট করুন
+                      <Link
+                        href={"http://pds.sib.gov.bd/"}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        ভিজিট করুন
+                      </Link>
                     </Button>
                   </div>
                   <div className="w-full flex items-center justify-between bg-white p-2 rounded-md">
