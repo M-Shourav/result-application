@@ -27,7 +27,7 @@ const Committee = () => {
         const res = await axios.get(
           "https://result-application-1w09.onrender.com/api/all-committee",
           {
-            withCredentials: true,
+            // withCredentials: true,
           }
         );
         const data = res?.data;
