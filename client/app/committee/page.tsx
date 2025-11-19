@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/Component";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CommitteeMember } from "@/type";
+import { serverUrl } from "@/utils/config";
 import axios from "axios";
 import { ChevronRight, House } from "lucide-react";
 import Image from "next/image";
@@ -20,12 +21,9 @@ const page = () => {
     const getCommitteeList = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
-          "https://result-application-1w09.onrender.com/api/all-committee",
-          {
-            withCredentials: true,
-          }
-        );
+        const res = await axios.get(`${serverUrl}/api/all-committee`, {
+          withCredentials: true,
+        });
         const data = res?.data;
         if (data?.success) {
           setCommitteeData(data?.committeeList);

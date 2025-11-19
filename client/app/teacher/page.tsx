@@ -2,6 +2,7 @@
 import Container from "@/components/ui/Component";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TeacherDataType } from "@/type";
+import { serverUrl } from "@/utils/config";
 import axios from "axios";
 import { ChevronRight, House } from "lucide-react";
 import Image from "next/image";
@@ -24,12 +25,9 @@ const page = () => {
     const getTeacherList = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
-          `https://result-application-1w09.onrender.com/api/all-teachers`,
-          {
-            withCredentials: true,
-          }
-        );
+        const res = await axios.get(`${serverUrl}/api/all-teachers`, {
+          withCredentials: true,
+        });
         const data = res?.data;
         if (data?.success) {
           setTeacherList(data?.teacherList);

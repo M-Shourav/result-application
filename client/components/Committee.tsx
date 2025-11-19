@@ -15,6 +15,7 @@ import {
   FaPhone,
 } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { serverUrl } from "@/utils/config";
 
 const Committee = () => {
   const [loading, setLoading] = useState(false);
@@ -24,12 +25,9 @@ const Committee = () => {
     const getCommitteeList = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
-          "https://result-application-1w09.onrender.com/api/all-committee",
-          {
-            // withCredentials: true,
-          }
-        );
+        const res = await axios.get(`${serverUrl}/api/all-committee`, {
+          // withCredentials: true,
+        });
         const data = res?.data;
         if (data?.success) {
           setCommitteeData(data?.committeeList);
