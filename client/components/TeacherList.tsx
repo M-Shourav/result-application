@@ -86,7 +86,7 @@ const TeacherList = () => {
                 {/* heading */}
                 <div className="relative flex items-end gap-x-2">
                   <div className=" shrink-0">
-                    <h2 className="text-lg md:text-3xl font-semibold md:font-bold tracking-tight">
+                    <h2 className="text-lg md:text-2xl font-semibold md:font-bold tracking-tight">
                       স্কুল শিক্ষক মন্ডলী
                     </h2>
                   </div>

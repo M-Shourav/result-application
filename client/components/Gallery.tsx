@@ -34,7 +34,7 @@ const Gallery = () => {
       <Container className={"py-10"}>
         <div className="relative flex items-end gap-x-2 mb-6">
           <div className=" shrink-0">
-            <h2 className="text-lg md:text-3xl font-semibold md:font-bold tracking-tight">
+            <h2 className="text-lg md:text-2xl font-semibold md:font-bold tracking-tight">
               ছবি এবং ভিডিও গ্যালারী
             </h2>
           </div>

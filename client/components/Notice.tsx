@@ -175,7 +175,7 @@ const Notice = () => {
         <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20">
           <div className="lg:col-span-2 w-full">
             <div className="relative flex items-end gap-x-2">
-              <h2 className="text-lg md:text-3xl font-semibold md:font-bold tracking-tight">
+              <h2 className="text-lg md:text-2xl font-semibold md:font-bold tracking-tight">
                 স্কুল পরিচালকদের বাণী
               </h2>
               <div className="w-[300px] hidden md:inline-block h-0.5 bg-gray-200" />
