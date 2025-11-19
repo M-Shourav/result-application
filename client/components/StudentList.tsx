@@ -32,7 +32,10 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter end={150} countClassName={"text-green-700"} />
+              <Counter
+                end={150}
+                countClassName={"text-xl md:text-2xl text-green-700"}
+              />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
               </h3>
@@ -43,7 +46,10 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter end={250} countClassName={"text-green-700"} />
+              <Counter
+                end={250}
+                countClassName={"text-xl md:text-2xl text-green-700"}
+              />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
               </h3>
@@ -54,7 +60,10 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter end={100} countClassName={"text-green-700"} />
+              <Counter
+                end={100}
+                countClassName={"text-xl md:text-2xl text-green-700"}
+              />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
               </h3>
@@ -65,7 +74,10 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter end={300} countClassName={"text-green-700"} />
+              <Counter
+                end={300}
+                countClassName={"text-xl md:text-2xl text-green-700"}
+              />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
               </h3>
