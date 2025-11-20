@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import Container from "./ui/Component";
-import Counter from "./Counter";
+import CountUp from "react-countup";
 
 const StudentList = () => {
   return (
@@ -18,9 +19,11 @@ const StudentList = () => {
         <div className="py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8">
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter
+              <CountUp
                 end={200}
-                countClassName={"text-xl md:text-2xl text-green-700"}
+                className={"text-xl md:text-2xl text-green-700 font-semibold"}
+                duration={5}
+                delay={2}
               />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
@@ -32,9 +35,11 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter
+              <CountUp
                 end={150}
-                countClassName={"text-xl md:text-2xl text-green-700"}
+                className={"text-xl md:text-2xl text-green-700 font-semibold"}
+                duration={5}
+                delay={2}
               />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
@@ -46,9 +51,11 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter
+              <CountUp
                 end={250}
-                countClassName={"text-xl md:text-2xl text-green-700"}
+                className={"text-xl md:text-2xl text-green-700 font-semibold"}
+                duration={5}
+                delay={2}
               />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
@@ -60,9 +67,11 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter
+              <CountUp
                 end={100}
-                countClassName={"text-xl md:text-2xl text-green-700"}
+                className={"text-xl md:text-2xl text-green-700 font-semibold"}
+                duration={5}
+                delay={2}
               />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
@@ -74,9 +83,11 @@ const StudentList = () => {
           </div>
           <div className="w-36 h-36 md:w-48 md:h-48 flex items-center justify-center rounded-full border border-gray-300 hover:border-green-800 duration-300">
             <div className="flex flex-col items-center justify-center gap-y-1">
-              <Counter
+              <CountUp
                 end={300}
-                countClassName={"text-xl md:text-2xl text-green-700"}
+                className={"text-xl md:text-2xl text-green-700 font-semibold"}
+                duration={5}
+                delay={2}
               />
               <h3 className="text-base md:text-xl font-semibold">
                 Total Student&apos;s
