@@ -1,7 +1,6 @@
 import asyncHandler from "express-async-handler";
 import cloudinary from "../utils/cloudinary.js";
 import committeeModels from "../models/committeeModels.js";
-import teacherModels from "../models/TeachersModels.js";
 
 const createCommittee = asyncHandler(async (req, res) => {
   try {
