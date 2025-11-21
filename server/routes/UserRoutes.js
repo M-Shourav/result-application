@@ -15,7 +15,7 @@ const userRouter = Router();
 userRouter.post("/register", upload.single("avatar"), registerUser);
 userRouter.post("/login", loginUser);
 userRouter.post("/logout", logoutUser);
-userRouter.post("/remove-user/:id", deleteUser);
+userRouter.delete("/remove-user/:id", deleteUser);
 userRouter.put("/user-update/:id", upload.single("avatar"), updateUser);
 userRouter.get("/user-list", GetUserList);
 userRouter.get("/single-user", SingleUser);

@@ -27,7 +27,7 @@ const Committee = () => {
       try {
         setLoading(true);
         const res = await axios.get(`${serverUrl}/api/all-committee`, {
-          // withCredentials: true,
+          withCredentials: true,
         });
         const data = res?.data;
         if (data?.success) {

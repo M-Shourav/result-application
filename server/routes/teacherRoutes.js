@@ -11,7 +11,7 @@ import {
 const teacherRouter = Router();
 
 teacherRouter.post("/teachers", upload.single("avatar"), createTeacherData); //create teacher
-teacherRouter.post("/teachers/:id", deleteTeacherData); //delete teacher data
+teacherRouter.delete("/teachers/:id", deleteTeacherData); //delete teacher data
 teacherRouter.get("/single-teacher/:slug", singleTeacherData); //single teacher data
 teacherRouter.put(
   "/update-teacher/:id",

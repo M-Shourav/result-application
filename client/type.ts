@@ -69,3 +69,21 @@ export interface CommitteeMember {
     linkedin: string;
   };
 }
+
+export interface AvatarType {
+  url: string;
+  public_id: string;
+  _id: string;
+}
+
+export interface StudentType {
+  _id: string;
+  name: string;
+  roll: string;
+  group: string;
+  year: string;
+  className: string;
+  avatar: AvatarType;
+  createdAt: string; // ISO date string
+  updatedAt: string; // ISO date string
+}

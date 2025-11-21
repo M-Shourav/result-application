@@ -14,7 +14,7 @@ studentRoutes.post(
   upload.single("avatar"),
   CreateStudentData
 );
-studentRoutes.post("/delete/student-data/:id", DeleteStudentData);
+studentRoutes.delete("/delete/student-data/:id", DeleteStudentData);
 studentRoutes.put(
   "/update/student-data/:id",
   upload.single("avatar"),

@@ -9,7 +9,7 @@ import {
 const committeeRouter = Router();
 
 committeeRouter.post("/committees", upload.single("avatar"), createCommittee);
-committeeRouter.post("/delete-committee/:id", deleteCommittee);
+committeeRouter.delete("/delete-committee/:id", deleteCommittee);
 committeeRouter.put(
   "/update-committee/:id",
   upload.single("avatar"),

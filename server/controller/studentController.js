@@ -19,7 +19,7 @@ const CreateStudentData = asyncHandler(async (req, res) => {
     // }
 
     // const Existing = await studentModels.fineOne({ roll });
-    const Existing = await studentModels.findOne({ roll });
+    const Existing = await studentModels.findOne({ roll, className, group });
     if (Existing) {
       return res.json({
         success: false,
@@ -27,22 +27,21 @@ const CreateStudentData = asyncHandler(async (req, res) => {
       });
     }
 
-    let avatar = null;
-    if (req.file) {
-      const file = cloudinary.uploader.upload(req?.file.path, {
-        resource_type: "image",
-        folder: "student-image",
-      });
-      avatar = {
-        url: (await file).secure_url,
-        public_id: (await file).public_id,
-      };
-    } else {
+    if (!req?.file) {
       return res.json({
         success: false,
-        message: "avatar is required",
+        message: "Image is required!",
       });
     }
+
+    const file = await cloudinary.uploader.upload(req.file.path, {
+      resource_type: "image",
+      folder: "student-image",
+    });
+    const avatar = {
+      url: file?.secure_url,
+      public_id: file?.public_id,
+    };
 
     const student = new studentModels({
       name,
@@ -79,10 +78,11 @@ const DeleteStudentData = asyncHandler(async (req, res) => {
     if (student.avatar.public_id) {
       await cloudinary.uploader.destroy(student.avatar.public_id);
     }
-    await studentModels.findByIdAndDelete(student);
+    await studentModels.findByIdAndDelete(req.params.id);
     return res.json({
       success: true,
       message: "student data delete successfully",
+      student,
     });
   } catch (error) {
     return res.json({
@@ -93,6 +93,50 @@ const DeleteStudentData = asyncHandler(async (req, res) => {
 });
 const UpdateStudentData = asyncHandler(async (req, res) => {
   try {
+    const student = await studentModels.findById(req.params.id);
+
+    if (!student) {
+      return res.json({
+        success: false,
+        message: "Student not found",
+      });
+    }
+
+    const { name, roll, className, group, year } = req.body;
+
+    // 🖼️ Update avatar if new image uploaded
+    if (req.file) {
+      // delete old avatar
+      if (student?.avatar?.public_id) {
+        await cloudinary.uploader.destroy(student.avatar.public_id);
+      }
+
+      // upload new image
+      const file = await cloudinary.uploader.upload(req.file.path, {
+        resource_type: "image",
+        folder: "student-image",
+      });
+
+      student.avatar = {
+        url: file.secure_url,
+        public_id: file.public_id,
+      };
+    }
+
+    // ✏️ Update fields only if provided
+    if (name) student.name = name;
+    if (roll) student.roll = roll;
+    if (group) student.group = group;
+    if (year) student.year = year;
+    if (className) student.className = className;
+
+    await student.save();
+
+    return res.json({
+      success: true,
+      message: "Student data updated successfully",
+      student,
+    });
   } catch (error) {
     return res.json({
       success: false,
@@ -100,8 +144,21 @@ const UpdateStudentData = asyncHandler(async (req, res) => {
     });
   }
 });
+
 const AllStudentData = asyncHandler(async (req, res) => {
   try {
+    const total = await studentModels.countDocuments();
+
+    const studentList = await studentModels
+      .find()
+      .sort({ createdAt: -1 }) // newest first
+      .select("-__v"); // remove unwanted field
+
+    return res.json({
+      success: true,
+      total,
+      studentList,
+    });
   } catch (error) {
     return res.json({
       success: false,

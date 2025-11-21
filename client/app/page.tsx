@@ -4,6 +4,7 @@ import TeacherList from "../components/TeacherList";
 import Gallery from "@/components/Gallery";
 import Committee from "@/components/Committee";
 import StudentList from "@/components/StudentList";
+import TopStudent from "@/components/TopStudent";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Gallery />
       <Committee />
       <StudentList />
+      <TopStudent />
     </div>
   );
 };

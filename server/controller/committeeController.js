@@ -13,60 +13,41 @@ const createCommittee = asyncHandler(async (req, res) => {
       linkedin: req.body["socialLinks.linkedin"],
     };
 
-    if (!name) {
-      return res.json({
+    if (!name || !title || !memberJoin || !membershipTerm) {
+      return res.status(400).json({
         success: false,
-        message: "Name is required!",
-      });
-    }
-    if (!title) {
-      return res.json({
-        success: false,
-        message: "title is required!",
-      });
-    }
-    if (!memberJoin) {
-      return res.json({
-        success: false,
-        message: "memberJoin is required!",
-      });
-    }
-
-    if (!membershipTerm) {
-      return res.json({
-        success: false,
-        message: "memberShip is required!",
+        message: "Please provide all required fields",
       });
     }
 
     const ExistingCommittee = await committeeModels.findOne({ title });
     if (ExistingCommittee) {
+      if (existing) {
+        return res.status(409).json({
+          success: false,
+          message: "Committee member with this title already exists",
+        });
+      }
+    }
+
+    if (!req.file) {
       return res.json({
         success: false,
-        message: "This user already created",
+        message: "Image is required",
       });
     }
 
-    let avatar = null;
-
-    if (req.file) {
-      const file = cloudinary.uploader.upload(req.file?.path, {
-        resource_type: "image",
-        folder: "committee-images",
-      });
-      avatar = {
-        url: (await file).secure_url,
-        public_id: (await file).public_id,
-      };
-    } else {
-      return res.json({
-        success: false,
-        message: "avatar is required.",
-      });
-    }
+    const file = await cloudinary.uploader.upload(req.file.path, {
+      resource_type: "image",
+      folder: "committee-images",
+    });
+    const avatar = {
+      url: file?.secure_url,
+      public_id: file?.public_id,
+    };
 
     // create committee data
-    const committee = await committeeModels.create({
+    const committee = await committeeModels({
       name,
       title,
       memberJoin,
@@ -75,6 +56,8 @@ const createCommittee = asyncHandler(async (req, res) => {
       socialLinks,
     });
 
+    await committee.save();
+
     return res.json({
       success: true,
       message: "Committee member created successfully",
@@ -82,9 +65,9 @@ const createCommittee = asyncHandler(async (req, res) => {
     });
   } catch (error) {
     console.log("Committee data create error", error);
-    return res.json({
+    return res.status(500).json({
       success: false,
-      message: error?.message,
+      message: error?.message || "Internal server error",
     });
   }
 });
@@ -176,7 +159,10 @@ const updateCommittee = asyncHandler(async (req, res) => {
 const getallCommittee = asyncHandler(async (req, res) => {
   try {
     const total = await committeeModels.countDocuments({});
-    const committeeList = await committeeModels.find();
+    const committeeList = await committeeModels
+      .find()
+      .sort({ createdAt: -1 })
+      .select("-__v");
     return res.json({
       success: true,
       total,
