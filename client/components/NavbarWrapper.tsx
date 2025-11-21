@@ -46,11 +46,13 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto p-4 flex items-center justify-between">
-        <Image
-          src={Logo}
-          alt="logo"
-          className="w-[120px] md:w-[200px] h-auto"
-        />
+        <Link href={"/"}>
+          <Image
+            src={Logo}
+            alt="logo"
+            className="w-[120px] md:w-[200px] h-auto"
+          />
+        </Link>
 
         <Sheet>
           <SheetTrigger asChild>
@@ -167,12 +169,12 @@ const Navbar: React.FC = () => {
                 </AccordionItem>
               </Accordion>
 
-              <div className="p-2 border-b -mt-3 border-b-gray-200">
+              <div className="py-2 border-b -mt-3 border-b-gray-200">
                 <Link href="/" className="text-sm font-semibold">
                   ছবির গ্যালারী
                 </Link>
               </div>
-              <div className="p-2 -mt-3 border-b border-b-gray-200">
+              <div className="py-2 -mt-3 border-b border-b-gray-200">
                 <Link href="/" className="text-sm font-semibold">
                   যোগাযোগ
                 </Link>
