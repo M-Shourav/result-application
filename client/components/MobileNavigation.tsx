@@ -29,7 +29,7 @@ const NavItems = [
 
 const MobileNavigation = () => {
   return (
-    <div className="">
+    <div>
       <Sheet>
         <SheetTrigger asChild>
           <Menu
