@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import Container from "./ui/Component";
 
 const Navbar: React.FC = () => {
   const [show, setShow] = useState(false); // initially hidden
@@ -40,7 +41,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <header
+    <Container
       className={`fixed top-0 left-0 w-full z-50 bg-white transition-transform duration-500 shadow-md ${
         show ? "translate-y-0" : "-translate-y-full"
       }`}
@@ -203,7 +204,7 @@ const Navbar: React.FC = () => {
           </SheetContent>
         </Sheet>
       </div>
-    </header>
+    </Container>
   );
 };
 
