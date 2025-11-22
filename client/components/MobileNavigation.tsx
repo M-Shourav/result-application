@@ -64,19 +64,19 @@ const MobileNavigation = () => {
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
-                      href={"/"}
+                      href={"/about"}
                       className="text-sm font-semibold text-gray-600 p-2 pb-4 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       প্রতিষ্ঠানের পরিচিতি
                     </Link>
                     <Link
-                      href={"/"}
+                      href={"/school-information"}
                       className="text-sm font-semibold text-gray-600 p-2 -mt-3 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       বিদ্যালয়ের তথ্যাদি
                     </Link>
                     <Link
-                      href={"/"}
+                      href={"/corner-message"}
                       className="text-sm font-semibold text-gray-600  px-2  hover:text-green-500 duration-500 "
                     >
                       স্কুলের পরিচালকের বাণী
@@ -93,13 +93,13 @@ const MobileNavigation = () => {
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
-                      href={"/"}
+                      href={"/teacher"}
                       className="text-sm font-semibold text-gray-600 p-2 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       শিক্ষক/শিক্ষিকা
                     </Link>
                     <Link
-                      href={"/"}
+                      href={"/committee"}
                       className="text-sm font-semibold text-gray-600 px-2  hover:text-green-500 duration-500"
                     >
                       স্কুল কমিটি সদস্যবৃন্দ
@@ -116,13 +116,13 @@ const MobileNavigation = () => {
                   </AccordionTrigger>
                   <AccordionContent className=" flex flex-col gap-4">
                     <Link
-                      href={"/"}
+                      href={"/running-student-data"}
                       className="text-sm font-semibold text-gray-600 p-2 pb-3 border-b border-b-gray-200 hover:text-green-500 duration-500"
                     >
                       অধ্যয়নর‍ত শিক্ষার্থীর সংখ্যা
                     </Link>
                     <Link
-                      href={"/"}
+                      href={"/student-list"}
                       className="text-sm font-semibold text-gray-600 px-2 hover:text-green-500 duration-500"
                     >
                       অধ্যয়নর‍ত শিক্ষার্থীর তালিকা
@@ -155,12 +155,12 @@ const MobileNavigation = () => {
               </Accordion>
             </div>
             <div className="p-2 border-b -mt-3 border-b-gray-200">
-              <Link href={"/"} className="text-sm font-semibold">
+              <Link href={"/gallery"} className="text-sm font-semibold">
                 ছবির গ্যালারী
               </Link>
             </div>
             <div className="p-2 -mt-3 border-b border-b-gray-200">
-              <Link href={"/"} className="text-sm font-semibold">
+              <Link href={"/contact"} className="text-sm font-semibold">
                 যোগাযোগ
               </Link>
             </div>
