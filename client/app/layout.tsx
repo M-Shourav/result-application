@@ -5,6 +5,7 @@ import Header from "@/components/ui/Header";
 import { Toaster } from "react-hot-toast";
 import TopHeader from "@/components/TopHeader";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/NavbarWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased primary-color`}
       >
+        <Navbar />
         <TopHeader />
         <Header />
         {children}

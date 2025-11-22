@@ -210,7 +210,7 @@ const Footer = () => {
                   href={"mailto:muhammadshourav625@gmail.com"}
                   className="w-fit text-base font-semibold leading-snug wrap-break-words px-2 hover:text-green-400 duration-300"
                 >
-                  muhammadshourav625@gmail.com
+                  am.masum1139@gmail.com
                 </Link>
               </div>
             </div>
@@ -238,7 +238,7 @@ const Footer = () => {
       <div className="w-full bg-[#363c43]">
         <Container
           className={
-            "py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+            "py-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
           }
         >
           <div className="flex flex-col gap-y-2">
@@ -295,7 +295,7 @@ const Footer = () => {
                 href="https://www.youtube.com/@MasumAhmed-cd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-red-500 flex items-center justify-center"
+                className="hidden p-2 rounded-full bg-red-500 md:flex items-center justify-center"
               >
                 <FaYoutube size={25} />
               </Link>
